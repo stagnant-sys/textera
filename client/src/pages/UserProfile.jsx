@@ -28,12 +28,12 @@ export const UserProfile = () => {
       return;
     }
     try {
-      //const userReq = await fetch('http://localhost:3000/user/' + id);
-      const userReq = await fetch('https://textera-production.up.railway.app/user/' + id);
+      const userReq = await fetch('http://localhost:3000/user/' + id);
+      //const userReq = await fetch('https://textera-production.up.railway.app/user/' + id);
       const userRes = await userReq.json()
       setUser(userRes);
-      //const convReq = await fetch('http://localhost:3000/conversation/users/' + userData.user_metadata.uid + '/' + id, {
-      const convReq = await fetch('https://textera-production.up.railway.app/conversation/users/' + userData.user_metadata.uid + '/' + id, {
+      const convReq = await fetch('http://localhost:3000/conversation/users/' + userData.user_metadata.uid + '/' + id, {
+      //const convReq = await fetch('https://textera-production.up.railway.app/conversation/users/' + userData.user_metadata.uid + '/' + id, {
         headers: {
           "Authorization": userData.user_metadata.uid,
         }
@@ -50,8 +50,8 @@ export const UserProfile = () => {
     if (!conversation.length) {
       return
     } else {
-      //const mediaReq = await fetch('http://localhost:3000/messages/conv/' + conversation[0]._id + '/media', {
-      const mediaReq = await fetch('https://textera-production.up.railway.app/messages/conv/' + conversation[0]._id + '/media', {
+      const mediaReq = await fetch('http://localhost:3000/messages/conv/' + conversation[0]._id + '/media', {
+      //const mediaReq = await fetch('https://textera-production.up.railway.app/messages/conv/' + conversation[0]._id + '/media', {
         headers: {
           "Authorization": userData.user_metadata.uid,
         }
@@ -62,8 +62,8 @@ export const UserProfile = () => {
   }
 
   const addToContacts = async () => {
-    //await fetch('http://localhost:3000/user/' + userData.user_metadata.uid + '/add/' + id, {
-    await fetch('https://textera-production.up.railway.app/user/' + userData.user_metadata.uid + '/add/' + id, {
+    await fetch('http://localhost:3000/user/' + userData.user_metadata.uid + '/add/' + id, {
+    //await fetch('https://textera-production.up.railway.app/user/' + userData.user_metadata.uid + '/add/' + id, {
       method: 'POST',
     });
     navigateTo('/contacts');
@@ -74,8 +74,8 @@ export const UserProfile = () => {
       user1: userData.user_metadata.uid,
       user2: user._id,
     };
-    //const req = await fetch('http://localhost:3000/conversation/create', {
-    const req = await fetch('https://textera-production.up.railway.app/conversation/create', {
+    const req = await fetch('http://localhost:3000/conversation/create', {
+    //const req = await fetch('https://textera-production.up.railway.app/conversation/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

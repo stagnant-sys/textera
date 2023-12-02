@@ -217,9 +217,10 @@ exports.change_status = asyncHandler(async (req, res, next) => {
 
 // Verify JWT
 exports.verify_user = asyncHandler(async (req, res, next) => {
-  res.end();
+  console.log(req.token);
   jwt.verify(req.token, process.env.JWT_SECRET, (err, authData) =>{
     if (err) {
+      res.json(err)
       res.status(403);
     } else {
       res.json({

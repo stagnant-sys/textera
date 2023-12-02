@@ -36,8 +36,8 @@ export const SettingsPage = () => {
       return
     }
     try {
-      //const req = await fetch('http://localhost:3000/user/' + userData.user_metadata.uid);
-      const req = await fetch('https://textera-production.up.railway.app/user/' + userData.user_metadata.uid);
+      const req = await fetch('http://localhost:3000/user/' + userData.user_metadata.uid);
+      //const req = await fetch('https://textera-production.up.railway.app/user/' + userData.user_metadata.uid);
       const res = await req.json()
       setUser(res);  
     } catch {

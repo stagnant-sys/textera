@@ -46,8 +46,8 @@ export const MessageInputField = (props) => {
     }
     if (data.file_upload.size === 0 || data.file_upload.type.includes('image')) {
       setErrorMessage(null);
-      //await fetch('http://localhost:3000/messages/create', {
-      await fetch('https://textera-production.up.railway.app/messages/create', {
+      await fetch('http://localhost:3000/messages/create', {
+      //await fetch('https://textera-production.up.railway.app/messages/create', {
         method: 'POST',
         body: formData,
       })

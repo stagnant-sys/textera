@@ -16,8 +16,8 @@ export const ContactsPage = () => {
       return
     }
     try {
-      //const req = await fetch('http://localhost:3000/user/' + userData.user_metadata.uid + '/contacts');
-      const req = await fetch('https://textera-production.up.railway.app/user/' + userData.user_metadata.uid + '/contacts');
+      const req = await fetch('http://localhost:3000/user/' + userData.user_metadata.uid + '/contacts');
+      //const req = await fetch('https://textera-production.up.railway.app/user/' + userData.user_metadata.uid + '/contacts');
       const res = await req.json()
       setContacts(res);
     } catch {

@@ -16,8 +16,8 @@ export const ConversationsList = () => {
       return;
     } 
     try {
-      //const req = await fetch('http://localhost:3000/conversation/user/' + userData.user_metadata.uid, {
-      const req = await fetch('https://textera-production.up.railway.app/conversation/user/' + userData.user_metadata.uid, {
+      const req = await fetch('http://localhost:3000/conversation/user/' + userData.user_metadata.uid, {
+      //const req = await fetch('https://textera-production.up.railway.app/conversation/user/' + userData.user_metadata.uid, {
         headers: {
           "Authorization": userData.user_metadata.uid,
         }

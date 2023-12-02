@@ -22,6 +22,7 @@ import { GroupCreatePage } from "./pages/GroupCreate";
 import { ChangeAvatarPage } from "./pages/ChangeAvatar"
 import { ChangeStatusPage } from "./pages/ChangeStatus"
 import { ErrorPage } from "./pages/ErrorPage";
+import { VerifyUser } from "./pages/Verify";
 
 const supabaseUrl = "https://gliraufnczlivoqbxhzc.supabase.co";
 import { supabaseKey } from "./_private";
@@ -51,8 +52,8 @@ export const Routing = () => {
     if (!userData) {
       return;
     } else {
-      //const req = await fetch('http://localhost:3000/user/' + userData.user_metadata.uid);
-      const req = await fetch('https://textera-production.up.railway.app/user/' + userData.user_metadata.uid);
+      const req = await fetch('http://localhost:3000/user/' + userData.user_metadata.uid);
+      //const req = await fetch('https://textera-production.up.railway.app/user/' + userData.user_metadata.uid);
       const res = await req.json();
       localStorage.setItem('avatar', res.avatar);
       localStorage.setItem('status', res.status);
@@ -88,6 +89,7 @@ export const Routing = () => {
           <Route path="/group/:id" element={<Group />} />
           <Route path="/group/:id/details" element={<GroupInfo />} />
           <Route path="/group/:id/edit" element={<GroupEditPage />} />
+          <Route exact path="/verify" element={<VerifyUser />} />
           <Route path="*" element={<ErrorPage error={'Page not found'} />} />
         </Routes>
         <Footer />

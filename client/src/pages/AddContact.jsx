@@ -17,15 +17,15 @@ export const AddContactPage = () => {
     if (data.username === '') {
       return;
     }
-    //const contactReq = await fetch('http://localhost:3000/user/username/' + data.username);
-    const contactReq = await fetch('https://textera-production.up.railway.app/user/username/' + data.username);
+    const contactReq = await fetch('http://localhost:3000/user/username/' + data.username);
+    //const contactReq = await fetch('https://textera-production.up.railway.app/user/username/' + data.username);
     const contactRes = await contactReq.json();
     if (contactRes.length === 0) {
       const err = 'User not found';
       setErrorMessage(err);
     } else {
-      //const req = await fetch('http://localhost:3000/user/' + userData.user_metadata.uid + '/add/' + contactRes[0]._id, {
-      const req = await fetch('https://textera-production.up.railway.app/user/' + userData.user_metadata.uid + '/add/' + contactRes[0]._id, {
+      const req = await fetch('http://localhost:3000/user/' + userData.user_metadata.uid + '/add/' + contactRes[0]._id, {
+      //const req = await fetch('https://textera-production.up.railway.app/user/' + userData.user_metadata.uid + '/add/' + contactRes[0]._id, {
         method: 'POST',
       })
       if(req.status !== 200) {

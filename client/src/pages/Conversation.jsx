@@ -27,8 +27,8 @@ export const Conversation = () => {
       return null
     }
     try {
-      //const req = await fetch('http://localhost:3000/messages/conv/' + id, {
-      const req = await fetch('https://textera-production.up.railway.app/messages/conv/' + id, {
+      const req = await fetch('http://localhost:3000/messages/conv/' + id, {
+      //const req = await fetch('https://textera-production.up.railway.app/messages/conv/' + id, {
         headers: {
           "Authorization": userData.user_metadata.uid,
         }

@@ -22,8 +22,8 @@ export const GroupEditPage = () => {
     }
     setUsersID([userData.user_metadata.uid]);
     setUsersInfo([{id: userData.user_metadata.uid, username : userData.user_metadata.username, avatar: localStorage.avatar}]);
-    //const req = await fetch('http://localhost:3000/group/' + id, {
-    const req = await fetch('https://textera-production.up.railway.app/group/' + id, {
+    const req = await fetch('http://localhost:3000/group/' + id, {
+    //const req = await fetch('https://textera-production.up.railway.app/group/' + id, {
       headers: {
         "Authorization": userData.user_metadata.uid,
       }
@@ -36,8 +36,8 @@ export const GroupEditPage = () => {
     if (!userData) {
       return
     }
-    //const req = await fetch('http://localhost:3000/user/' + userData.user_metadata.uid + '/contacts');
-    const req = await fetch('https://textera-production.up.railway.app/user/' + userData.user_metadata.uid + '/contacts');
+    const req = await fetch('http://localhost:3000/user/' + userData.user_metadata.uid + '/contacts');
+    //const req = await fetch('https://textera-production.up.railway.app/user/' + userData.user_metadata.uid + '/contacts');
     const res = await req.json()
     setContacts(res);
   }
@@ -71,8 +71,8 @@ export const GroupEditPage = () => {
       formData.append('users[]', usersID[i])
       }
     )
-    //const req = await fetch(`http://localhost:3000/group/edit/` + id, {
-    const req = await fetch(`https://textera-production.up.railway.app/group/edit/` + id, {
+    const req = await fetch(`http://localhost:3000/group/edit/` + id, {
+    //const req = await fetch(`https://textera-production.up.railway.app/group/edit/` + id, {
         method: 'PATCH',
         body: formData,
       });
