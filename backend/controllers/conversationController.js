@@ -6,7 +6,7 @@ const User = require('../models/user');
 
 // GET All user's conversations // SECURED
 exports.user_conv_get = asyncHandler(async (req, res, next) => {
-  console.log(req.token);
+  console.log({token: req.token});
   if (req.headers.authorization !== req.params.id) {
     res.sendStatus(403);
   } else {

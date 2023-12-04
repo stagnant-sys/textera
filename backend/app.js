@@ -61,6 +61,19 @@ passport.use(
   })
 );
 
+// JWT verify
+const verifyToken = (req, res, next) => {
+  const bearerHeader = req.headers['authorization'];
+  console.log(bearerHeader);
+  if (typeof bearerHeader !== undefined) {
+      const bearer = bearerHeader.split('.');
+      const bearerToken = bearer[1];
+      req.token = bearerHeader;
+      req.testToken = bearerHeader;
+  }
+  next();
+}
+
 // Set up mongoose connection
 mongoose.set("strictQuery", false);
 const mongoDB = process.env.MONGO_URI;
@@ -90,6 +103,7 @@ app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   next();
 });
+app.use(verifyToken);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
